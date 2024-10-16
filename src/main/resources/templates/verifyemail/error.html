@@ -1,0 +1,89 @@
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Page</title>
+    <style>
+        body {
+     font-family: Arial, sans-serif;
+            background-image:url(/scopehomeimg/myb.jpeg) ;
+              background-size:cover;
+            background-repeat:no-repeat;
+               background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;  
+            height: 100vh;
+            margin: 0;
+            padding-top: 50px;  
+        }
+        .container {
+            
+            padding: 50px;
+             
+             border:2px solid white;
+             backdrop-filter:blur(15px);
+             
+            border-radius: 8px;
+         
+            width: 90%;
+            max-width: 400px; 
+            box-sizing: border-box;
+            text-align: center;  
+        }
+        p {
+            color:red; 
+            
+             
+            margin-bottom: 20px;
+            font-size:20px;
+            
+            font-weight:700;
+        }
+        
+        p {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100%
+     {
+        opacity: 1;
+    }
+    
+    50% 
+    {
+        opacity: 0;
+   }
+}
+
+
+        
+        
+        a {
+        
+            display: inline-block;
+            
+            padding: 10px 15px;
+             background-color:#00FFFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight:600;
+        }
+            a  {
+         
+            color: black;
+            box-shadow: 0 0 5px #00FFFF, 0 0 25px #00FFFF ;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>An error occurred.Please try again</p>
+        <a th:href="@{/nav2}">Return to home</a>
+    </div>
+</body>
+</html>
+ 

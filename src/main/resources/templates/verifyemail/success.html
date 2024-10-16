@@ -1,0 +1,102 @@
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful</title>
+    <style>
+   body {
+    font-family: Arial, sans-serif;
+   background-image:url(/scopehomeimg/myb.jpeg) ;
+  background-size:cover;
+   background-repeat:no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    border: 2px solid white;
+    padding: 50px;
+    width: 90%;
+    max-width: 500px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+h1 {
+    color: green;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0008);
+    line-height: 0.01em;
+    outline: none;
+    animation: animate 1s linear infinite;
+}
+
+@keyframes animate {
+    0%, 15%, 20%, 30%, 66%, 77%, 88%, 99% {
+        color: #0e3742;
+        text-shadow: none;
+    }
+    0%, 15%, 20%, 30%, 40%, 50%, 100% {
+        color: #fff;
+        box-shadow: 0 0 10px #00FFFF,
+                    0 0 20px #00FFFF,
+                    0 0 40px #00FFFF,
+                    0 0 80px #00FFFF,
+                    0 0 160px #00FFFF;
+    }
+}
+
+p {
+    font-weight: 600; 
+    color: white;
+    margin-top: 20px;  
+}
+
+ 
+@media (max-width: 600px) {
+    .container {
+        padding: 30px;  
+    }
+
+    h1 {
+        font-size: 24px;  
+    }
+
+    p {
+        font-size: 16px;  
+    }
+}
+
+ 
+@media (max-width: 400px) {
+    .container {
+        padding: 20px;  
+    }
+
+    h1 {
+        font-size: 20px;  
+    }
+
+    p {
+        font-size: 14px;   
+        margin-top: 15px;   
+    }
+}
+   
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registration Successful!</h1>
+        <p>Your registration has been completed successfully. Please check your email to verify your account.</p>
+    </div>
+</body>
+</html>
+ 

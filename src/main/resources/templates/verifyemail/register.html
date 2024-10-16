@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" th:href="@{/register.css}">
+     <link rel="stylesheet" th:href="@{/footer.css}">
+    <style>
+     body{ 
+        background-image:url(/scopehomeimg/mountain2.jpg);
+         background-attachment:fixed;
+          background-position:center top;
+          background-size:cover;
+        
+        }
+        @media only screen and  (max-width:1200px) {
+    .offcanvas-end {
+      width:auto!important ; 
+      background-color:darkblue;
+      
+    }
+  
+    
+  }
+  
+  
+ 
+  
+  .nav-link{
+    color: white;
+  }
+  .nav-link:hover{
+    color: orangered;
+  }
+ 
+  
+   
+
+.scopelogo{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	 height: 100vh;
+	background-image:url(/scopehomeimg/frontbkg.jpg);
+	background-size:cover;
+	background-position: center;
+	background-repeat:no-repeat;
+	  background-attachment: fixed;
+	 
+}
+         
+.navbar {
+    display: flex;
+    justify-content: space-between;  
+    align-items: center;  
+    position: relative;
+    position:fixed;  
+}
+
+ 
+.navbar-brand {
+    position: absolute;  
+    left: 50%;  
+    transform: translateX(-50%); 
+}
+
+@media (max-width: 575.99px) {  
+    .navbar {
+        justify-content: center;  
+    }
+    .navbar-brand {
+        position: relative;  
+        transform: none; 
+    }
+    .offcanvas {
+        width: 37vw !important;  
+          max-height: 80vh; 
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width:767.99px) {   
+    .navbar {
+        justify-content: center; 
+    }
+    .navbar-brand {
+        position: relative;  
+        transform: none;  
+    }
+    .offcanvas {
+        width: 26vw !important;  
+          max-height: 80vh; 
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width:992px) {   
+    .navbar {
+        justify-content: center;
+         
+    }
+    .navbar-brand {
+        position: relative;  
+        transform: none;  
+    }
+    .offcanvas {
+        width: 22vw !important; 
+         max-height: 80vh; 
+       
+    }
+    
+     
+}
+
+
+@media (max-width: 992px) {
+    .offcanvas-body {
+        display: flex;
+        flex-direction: column;  
+        align-items: center;     
+    }
+    
+    .navbar-nav {
+        width: 100%;            
+        justify-content: center;  
+        padding: 0;             
+    }
+
+    .nav-item {
+        margin: 10px 0;         
+    }
+}
+
+@media (min-width: 769px) {
+    .offcanvas {
+        width: auto;  
+          max-height: 80vh; 
+    }
+    .navbar-nav {
+        margin-left: auto;  
+        margin-right: auto;  
+    }
+    .navbar-nav.left {
+        margin-right: auto; 
+    }
+    .navbar-nav.right {
+        margin-left: auto;  
+    }
+    .nav-item {
+        margin: 0 15px;  
+    }
+}
+
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="white"%3E%3Cpath stroke="white" stroke-width="2" d="M5 7h20M5 15h20M5 23h20"/%3E%3C/svg%3E');
+}
+
+.btn-close {
+    filter: brightness(0) invert(1);  
+}
+.navbar-toggler {
+    border: none !important;  
+    background-color: transparent !important;  
+    outline: none !important;  
+    box-shadow: none !important;  
+}
+
+.navbar-toggler:focus {
+    outline: none !important;  
+}
+
+.navbar-toggler:active {
+    outline: none !important;  
+    background-color: transparent !important; 
+}
+        
+        
+    .message {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .message.success {
+            color: green;
+            font-size:16px;
+        }
+
+        .message.error {
+            color: red;
+             font-size:16px;
+        }      
+           .nav-link {
+    color: white; 
+    text-decoration: none; 
+    padding: 5px 10px; 
+    transition: color 0.3s ease, background-color 0.3s ease;
+border-radius: 5px;  
+}
+
+  .nav-link:hover {
+    color:orangered;  
+    font-weight:800;
+   
+    
+ 
+ 
+    
+}
+
+.nav-link:active {
+    color: darkorange;  
+   
+}
+
+.nav-link:focus {
+    outline: none;  
+    box-shadow: 0 0 5px white;  
+}
+ 
+        
+    </style>
+</head>
+
+<body>
+ 
+    <header class="headfixed"> 
+  <nav class="navbar navbar-expand-lg fixed-top" style="background-color: darkblue;">
+  <div class="container-fluid">
+ <a class="navbar-brand" href="#">
+    <img src="uploadimg/scope-india-logo-bird.png" alt="scopelogo" width="30" height="34">
+  </a>
+ <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+  <div class="offcanvas-header">
+  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+  <ul class="navbar-nav left">
+   <li class="nav-item">
+    <a class="nav-link  home" aria-current="page" th:href="@{/nav2}">Home</a>
+  </li>
+   <li class="nav-item">
+  <a class=" nav-link register" th:href="@{/reg}" role="button">Register</a>
+  </li>
+  </ul>
+ <ul class="navbar-nav right">
+  <li class="nav-item">
+  <a class="nav-link know" th:href="@{/otp-form}">New User</a>
+   </li>
+  <li class="nav-item">
+  <a class="nav-link contact" th:href="@{/contact}">Contact</a>
+</li>
+ <li class="nav-item">
+<a class="nav-link login" th:href="@{/otp}" role="button">Login</a>
+ </li>
+</ul>
+ </div>
+ </div>
+ </div>
+ </nav>
+ </header>
+ 
+ 
+ <div class="formcont" > 
+   <div class="content">                                   
+    <h1>Registration</h1>
+  <h2>It's just a matter of 80 days to an IT job!</h2>                                           
+  </div>         
+              
+           <div th:if="${message}" class="message success" th:text="${message}"></div>
+        <div th:if="${error}" class="message error" th:text="${error}"></div>   
+<form th:action="@{/upload}" th:object="${form}" class="c1" enctype="multipart/form-data" method="post">
+    <div class="container"  >
+        <div class="row"  id="formbkg" >
+            <!-- left column -->
+            <div class="col-sm-6 mb-4 border border-secondary border-1 p-4 col1">
+                <label for="fname">First Name<span class="required">*</span></label>
+                <input type="text" id="fname" name="fname" class="form-control custominput" th:field="*{fname}">
+                <span th:if="${#fields.hasErrors('fname')}" th:errors="*{fname}" class="text-danger"></span><br>
+
+                <div class="mb-3">
+                    <label for="lname">Last Name <span class="required">*</span></label>
+                    <input type="text" id="lname" name="lname" class="form-control custominput" th:field="*{lname}">
+                    <span th:if="${#fields.hasErrors('lname')}" th:errors="*{lname}" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="gender">Gender<span class="required">*</span></label><br>
+                    <input type="radio" id="male" name="gender" value="male" class="form-check-input customcheck" th:field="*{gender}">
+                    <label for="male">Male</label><br>
+                    <input type="radio" id="female" name="gender" value="female" class="form-check-input customcheck">
+                    <label for="female">Female</label><br>
+                    <input type="radio" id="other" name="gender" value="other" class="form-check-input customcheck">
+                    <label for="other">Other</label>
+                    <span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="dob">Date of Birth<span class="required">*</span></label>
+                    <input type="date" id="dob" name="dob" class="form-control custominput" th:field="*{dob}">
+                    <span th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}" class="text-danger"></span>
+ 
+                    
+                </div>
+
+                <div class="mb-3">
+                    <label for="email">Email<span class="required">*</span></label>
+                    <input type="email" id="email" class="form-control custominput" th:field="*{emailid}">
+                    <span th:if="${#fields.hasErrors('emailid')}" th:errors="*{emailid}" class="text-danger"></span>
+                      <div id="emailerror" style="color: red;"></div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="mob">Phone Number<span class="required">*</span></label>
+                    <input type="tel" id="mob" class="form-control custominput" th:field="*{phone}">
+                    <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="qualify">Educational Qualification<span class="required">*</span></label>
+                    <input type="text" id="qualify" class="form-control custominput" th:field="*{education}">
+                    <span th:if="${#fields.hasErrors('education')}" th:errors="*{education}" class="text-danger"></span>
+                </div>
+            </div><!-- left column -->
+
+            <!-- right column -->
+            <div class="col-sm-6 mb-4 border border-secondary border-1 p-4 col2">
+                <label for="address">Address<span class="required">*</span></label>
+                <input type="text" id="address" class="form-control custominput" th:field="*{address}">
+                <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="text-danger"></span><br>
+
+                <div class="mb-4">
+                    <label for="country" class="form-label">Country<span class="required">*</span></label>
+                    <select name="country" id="country" class="form-select custominput " th:field="*{country}">
+                        <option value="">Select Country</option>
+                        <option th:each="country:${countrylist}" th:text="${country.countryname}" th:value="${country.countryid}"></option>
+                    </select>
+                    <span th:if="${#fields.hasErrors('country')}" th:errors="*{country}" class="text-danger"></span>
+                </div>
+
+           <div class="mb-4">
+    <label for="state" class="form-label">State<span class="required">*</span></label>
+    <select name="state" id="state" class="form-select custominput" th:field="*{state}">
+        <option value="">Select State</option>
+        <option th:each="state : ${stateList}" th:value="${state.stateid}" th:text="${state.statename}"></option>
+    </select>
+    <span th:if="${#fields.hasErrors('state')}" th:errors="*{state}" class="text-danger"></span>
+</div>
+
+<div class="mb-4">
+    <label for="city" class="form-label">City<span class="required">*</span></label>
+    <select name="city" id="city" class="form-select custominput" th:field="*{city}">
+        <option value="">Select City</option>
+        <option th:each="city : ${cityList}" th:value="${city.cityid}" th:text="${city.cityname}"></option>
+    </select>
+    <span th:if="${#fields.hasErrors('city')}" th:errors="*{city}" class="text-danger"></span>
+</div>
+           
+
+                <div class="mb-4">
+                    <label class="form-label">Hobbies</label><br>
+                    <input type="checkbox" name="hobbies" id="drawing" value="Drawing" class="form-check-input customcheck" th:field="*{hobbies}">
+                    <label for="drawing" class="form-check-label">Drawing</label><br>
+                    <input type="checkbox" name="hobbies" id="singing" value="Singing" class="form-check-input  customcheck" th:field="*{hobbies}">
+                    <label for="singing" class="form-check-label">Singing</label><br>
+                    <input type="checkbox" name="hobbies" id="games" value="Games" class="form-check-input  customcheck" th:field="*{hobbies}">
+                    <label for="games" class="form-check-label">Games</label><br>
+                    <input type="checkbox" name="hobbies" id="reading" value="Reading Books" class="form-check-input  customcheck" th:field="*{hobbies}">
+                    <label for="reading" class="form-check-label">Reading Books</label>
+                    <span th:if="${#fields.hasErrors('hobbies')}" th:errors="*{hobbies}" class="text-danger"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label for="photo">Upload Photo<span class="required">*</span></label>
+                    <input type="file" id="photo" name="photom" class="form-control custominput"  accept=".jpg, .jpeg" />
+                    <span th:if="${#fields.hasErrors('photom')}" th:errors="*{photom}" class="text-danger"></span>
+                </div>
+            </div><!-- right column -->
+
+              <div class="mb-2 col-12 text-center">
+                <div class="col-sm-6 col-md-4 mx-auto">
+                    <input type="submit" id="regbutton" value="Complete Registration >>" >
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+  </div>
+ 
+    
+        
+    
+<div id="foot">
+                <div class="row pt-5">
+                    <h1 class="num d-flex justify-content-center">30+</h1>
+                    <p class="cont d-flex justify-content-center">COMPUTER COURSES</p>
+                </div>
+                <div class="row text-center m-auto">
+                    <div class="col-md-6">
+                        <h1 class="num">1000+</h1>
+                        <p class="cont">STUDENTS ARE <br> TRAINED EVERY YEAR</p>       
+                    </div>
+                    <div class="col-md-6">
+                        <h1 class="num ">95%</h1>
+                        <p class="cont">STUDENTS ARE GETTING <br> PLACED EVERY YEAR</p>        
+                    </div>
+                </div>
+                <div id="logocont" class="text-center mt-5 ms-5 me-5">
+                    <img src="/scopehomeimg/scope-india-logo-home-page.png"   alt="snowpark-footer-logo" class="img-fluid">
+                    <p>Center for Software, Networking, & Cloud Education <br> Kerala: Technopark TVM | Thampanoor TVM | Kaloor Kochi, Tamil Nadu: Distillery Road | Palace Road Nagercoil</p>
+                    <img src= "/scopehomeimg/iso_iaflogo2.png" alt="iso_iaflogo" class="img-fluid iso-logo mt-4 mb-3">
+                    <p>An ISO 9001:2015 Certified Company</p>
+                    <p>All Rights Reserved <a href="#" class="footlink">Suffix E Solutions</a>  © 2007-2024</p>
+                    <div class="row footlinkcont mt-4">
+                        <a href="tel:+9745936073" class="footlink col-md-3">9745936073 (TPK)</a>
+                        <a href="#" class="footlink col-md-2">9745936073 (TVM)</a>
+                        <a href="#" class="footlink col-md-2">7592939481 (EKM)</a>
+                        <a href="#" class="footlink col-md-2">8075536185 (NGL)</a>
+                        <a href="mailto:info@scopeindia.org?bcc=blindcopy@scopeindia.org" 
+                        class="footlink col-md-2">info@scopeindia.org</a>
+                    </div>
+                </div>
+            </div>
+
+         
+<script>
+
+
+document.getElementById('dob').setAttribute('max', new Date().toISOString().split('T')[0]);
+
+
+ 
+
+$(document).ready(function(){
+	$("#country").change(function(){ 
+	var countryId=$(this).val();
+	
+	   var state = $("#state");
+       state.empty().append('<option value="">Select State</option>');  
+       
+	
+	$.ajax({
+		url:'/state/'+countryId,
+		type:'GET',
+		success:function(data){
+			var state=$("#state")
+			state.empty().append('<option value="">Select State</option>');
+			 
+			$.each(data,function(i,stat){
+				state.append('<option value="'+stat.stateid+'">'+stat.statename+'</option>');
+			});
+			 
+		}
+	}); 
+	});
+	
+$("#state").change(function(){
+	var stateId=$(this).val();
+	$.ajax({
+		url:'/city/'+stateId,
+		type:'GET',
+		success:function(data1){
+			var city=$("#city")
+			city.empty();
+			 
+			$.each(data1,function(i,cit){
+				city.append('<option value="'+cit.cityid+'">'+cit.cityname+'</option>');
+			});
+		}
+		
+	});
+});
+});
+
+
+ $(document).ready(function(){
+	 $("#email").on("input" ,function(){
+		 const email=$(this).val();
+		 if(email){
+			 $.get('/checkemail', {email:email}, function(data){
+				 $("#emailerror").text(data);
+				 if(data === "Email already exists"){
+					 $("#regbutton").prop("disabled",true);
+				 }
+				 else{
+					 $("#regbutton").prop("disabled",false);
+				 }
+				 
+			 });
+			 
+		 }
+		 else{
+			 $("#emailerror").text('');
+			 $("#regbutton").prop("disabled",false);
+		 }
+	 });
+ });
+
+ 
+ 
+</script>
+ 
+</html>
+ 

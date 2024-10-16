@@ -1,0 +1,463 @@
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/dashboard.css}">
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+<style>
+  body {
+     
+    margin: 0;
+    padding: 0;
+      font-family: Arial, sans-serif;
+          background-image:url(/scopehomeimg/myb.jpeg) ;
+         background-attachment:fixed;
+          background-position:center top;
+          background-size:cover;
+          
+            background-repeat:no-repeat;
+         
+}
+
+.d-flex {
+    display: flex;
+}
+
+#sidebar {
+    backdrop-filter:blur(15px);
+    
+    width: 250px;
+    height:500px;
+    padding: 35px;
+   margin-left:-40px;
+    margin-top:50px;
+     border-radius: 2px;
+     border:1px solid #00FFFF ;
+}
+
+ 
+
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-item {
+    margin: 20px 0;
+}
+
+.sidebar-link {
+    text-decoration: none;
+    color:white;
+   display: flex;
+    align-items: center;
+    font-size:17px;
+    font-weight:700;
+    padding: 10px;
+    border-radius: 10px;
+    transition: background 0.5s;
+}
+
+.sidebar-link:hover {
+    background-color:#00FFFF  ;
+    color:black;
+    
+}
+
+.toggler-icon {
+    width: 40px;
+    height: auto;
+    margin-left: auto;
+    cursor: pointer;
+    display: block;  
+}
+
+.searchform {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -560px;
+     
+}
+
+.searchinput {
+    padding: 10px;
+    border:none;;
+    border-radius: 9px;
+    flex: 1; 
+    width: 500px;  
+    margin-right: 10px;  
+     margin-left: 40px;
+}
+
+.searchbutton {
+  padding: 5px 10px;
+  background-color:#00FFFF;
+  color:white ;
+  border: none;    
+ font-size: 16px;
+ font-weight:600;
+  border-radius: 5px;
+ cursor: pointer;
+    }
+
+   .searchbutton {
+        color:black;
+         box-shadow:0 0 5px #00FFFF; box-shadow:0 0 25px #00FFFF;
+          
+        }
+        
+        
+        .searchinput::placeholder {
+    color: #aaa;  
+    font-style: italic;  
+    opacity: 1;  
+}
+
+#signup {
+    padding: 10px 15px;
+    background-color:#00FFFF;
+  color:white ;
+  border: none;    
+ font-size: 16px;
+ font-weight:600;
+    border-radius: 5px;
+    cursor: pointer;
+   
+}
+
+#signup:hover {
+   color:black;
+         box-shadow:0 0 5px #00FFFF; box-shadow:0 0 25px #00FFFF;
+          box-shadow:0 0 50px #00FFFF; box-shadow:0 0 100px #00FFFF;
+}
+
+#searchresults {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;  
+}
+
+#searchresults ul {
+    list-style: none;
+    padding: 0;
+}
+
+#searchresults li {
+margin: 8px 0;  
+}
+
+.course-link {
+     text-decoration: none;  
+    color: white; 
+    font-weight:600;
+}
+
+.course-link:hover {
+    text-decoration: underline;  
+}
+
+label {
+            display: block;
+            margin-bottom:-10px;
+            font-size:17px;
+            color:white; 
+	   font-weight:600; 
+	    
+        }
+        
+           h3 {
+            text-align: center;
+               color:white; 
+	   font-weight:700; 
+	    font-size:28px;
+	     
+        }
+#coursedetails {
+    display: none;  
+    text-align: center;
+   margin-left:20px;
+    margin-top: 30px;  
+}
+
+#coursedetails input {
+    margin-bottom: 20px; 
+    padding: 10px;
+    border: 3px solid white;
+    border-radius: 8px;
+    width: 30%;
+}
+
+              #coursedetails input:focus {
+    color:black;  
+    font-weight:600;
+    
+    box-shadow: 0 0 15px #00FFFF  inset; 
+}
+
+ 
+@media (max-width: 992px) {
+
+ 
+
+    .d-flex {
+        flex-direction: column;  
+    }
+
+    #sidebar {
+        width: 100%;  
+         margin-top:100px;
+    }
+
+    .searchform {
+        flex-direction: column;  
+        margin-top: 50px;  
+          margin-left: 50px;  
+    }
+
+    .searchinput {
+        max-width: 35%;  
+        margin-right: 7px; 
+        margin-left:250px; 
+        margin-bottom: 20px; 
+    }
+
+    #coursedetails input {
+        width: 55%; 
+         border: 3px solid white;
+    border-radius: 8px;
+    padding: 10px;
+    }
+    
+    
+             #coursedetails input:focus {
+    color:black;  
+    font-weight:600;
+    
+    box-shadow: 0 0 15px #00FFFF  inset; 
+}
+  
+}
+
+.toggler-icon {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+    display: block;
+ 
+    margin: 10px;  
+ 
+}
+
+@media (max-width: 576px) {
+  .searchinput {
+        max-width: 25%; 
+        margin-left:350px;
+         
+        margin-right: 7px;  
+        margin-bottom: 20px; 
+    }
+}
+
+
+@media (max-width: 992px) {
+    #sidebar {
+        position: absolute;
+        height: auto;
+        transform: translateX(-130%);
+        transition: transform 0.3s ease;
+        display: block;
+        width: 250px;  
+        z-index: 1000;  
+        margin-top:100px;
+    }
+
+    #sidebar.active {
+        transform: translateX(0);  
+    }
+}
+  .message {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .message.success {
+            color: green;
+            font-size: 14px;
+        }
+
+        .message.error {
+            color: red;
+            font-size: 14px;
+        }
+    
+  
+    
+</style>
+
+     
+
+     
+</head>
+ 
+
+<body>
+  <div class="d-flex"  >
+ 
+ 
+    
+    
+     <aside id="sidebar">
+    <div class="sidebar-logo">
+         
+        <p class="scope"></p>
+    </div>
+    <ul class="sidebar-nav p-0">
+        <li class="sidebar-item"> 
+            <a th:href="@{/picked}" class="sidebar-link">
+                <i class="lni lni-bookmark"></i>
+                <span>Picked Courses</span>
+            </a>
+             </li>
+
+             <li class="sidebar-item">
+                 <a th:href="@{/profile/{id}(id=${userid})}" class="sidebar-link">
+               <i class="lni lni-user"></i>
+                    <span>Profile</span>
+                </a>
+             </li>
+
+             <li class="sidebar-item">
+                <a th:href="@{/pwd}" class="sidebar-link">
+                    <i class="lni lni-key"></i>
+                    <span>ChangePassword</span>
+                </a>
+             </li>
+             <li class="sidebar-item">
+                <a th:href="@{/logout}" class="sidebar-link">
+                    <i class="lni lni-exit"></i>
+                    <span>Logout</span>
+                </a>
+             </li>
+                <li class="sidebar-item">
+                <a th:href="@{/nav2}" class="sidebar-link">
+                    <i class="lni lni-home"></i>
+                    <span>Home</span>
+                </a>
+             </li>
+    </ul>
+    
+ </aside>
+ <img src="/uploadimg/scope-india-logo-bird.png" alt="logo"  class="toggler-icon"  id="sidebarToggler">
+</div>
+<div class="searchform"> 
+   <form th:action="@{/search}" method="get">
+        <input type="text" id="search" class="searchinput" name="keyword" placeholder="Search for courses..."  />
+        <button type="submit" class="searchbutton">Search</button>
+    </form> 
+    </div>
+     
+        
+      <div id="searchresults" th:if="${courses}"  >
+        
+        <ul>
+            <li th:each="course : ${courses}">
+            
+                <a href="#" class="course-link" th:data-id="${course.id}" 
+   th:text="${course.name}"  
+   title="Click this link to sign up for the course" >Course Name</a>
+          
+            </li>
+        </ul>
+    </div>
+
+    <div id="coursedetails"  >
+       
+        <h3>Course Details</h3>
+    <label for="Name">Course Name</label><br>
+    <input type="text" id="Name" readonly   /><br>
+    
+    <label for="Duration">Duration</label><br>
+    <input type="text" id="Duration" readonly /><br>
+    
+    <label for="Fees">Fees</label><br>
+    <input type="text" id="Fees" readonly /><br>
+    
+   <form th:action="@{/signup}" method="post">
+        <input type="hidden" name="courseid" id="hideid"> 
+        <button type="submit" id="signup">Sign Up</button>
+    </form>
+    </div>
+    
+  <div th:if="${message}" class="message success" th:text="${message}"></div>
+        <div th:if="${error}" class="message error" th:text="${error}"></div>
+  
+ 
+ 
+ 
+ 
+     
+    <script>
+    
+    //for search and display course in same page
+        $(document).on('click', '.course-link', function(event) {
+            event.preventDefault(); 
+            var courseId = $(this).data('id');  
+
+            $.ajax({
+                url: '/coursedetails/' + courseId,  
+                method: 'GET',
+                success: function(course) {
+                	 console.log(course); 
+                	  $('#Name').val(course.name);
+                      $('#Duration').val(course.duration);
+                      $('#Fees').val(course.fees);
+                      $('#hideid').val(course.id);
+                      
+                      $('#coursedetails').show();
+                }
+                
+                
+                
+            });
+        });
+        
+    //for when we click scope logo it will hide content 
+ const toggler = document.getElementById('sidebarToggler');
+            const sidebar = document.getElementById('sidebar');
+
+            toggler.addEventListener('click', () => {
+                sidebar.classList.toggle('active'); // Toggle active class
+            });
+
+        // For success message popup
+     
+  document.addEventListener("DOMContentLoaded", function() {
+        const message = "[[${message}]]" ;
+        if (message) {
+            alert(message);
+        }
+    }); 
+        
+        document.addEventListener("DOMContentLoaded",function(){
+        	const error="[[${error}]]"
+        	if(error){
+        		alert(error);
+        	}
+        	
+        });   
+        
+        
+        
+
+
+    </script>
+      
+  
+</body>
+</html>
+ 

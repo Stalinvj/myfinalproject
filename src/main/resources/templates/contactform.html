@@ -1,0 +1,210 @@
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+           
+           
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+             font-family: Arial, sans-serif;
+             background-image:url(/scopehomeimg/myb.jpeg) ;
+             
+            background-size:cover;
+             background-repeat: no-repeat;  
+    background-attachment: fixed;
+       
+           
+        }
+@media (max-width: 600px) {
+    body {
+        padding: 0 30px; 
+    }
+}
+
+@media (max-width: 500px) {
+    body {
+        padding: 0 15px;  
+    }
+}
+
+
+        form {
+                        backdrop-filter: blur(10px);
+            border-radius: 8px;
+           border:2px solid white;
+            padding: 40px;
+            border-radius: 5px;
+           width: 90%;
+            max-width: 500px;
+            box-sizing: border-box;
+            margin-top:190px!important;
+            
+        }
+        h3 {
+            text-align: center;
+            margin-bottom: 10px;
+           color:white; 
+	   font-weight:700; 
+	    font-size:21px;
+	    
+        }
+        .input-container {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        .input-container i {
+            position: absolute;
+            left: 10px;
+            top: 37px;
+            color: #aaa;
+        }
+              .input-container label {
+            display: block;
+            margin-bottom: 5px;  
+            font-size:16px;
+            color:white; 
+	   font-weight:600;  
+	       
+        }
+        
+        #email,#name,#sub,#msg {
+            width: 100%;
+            padding: 12px 12px 12px 32px; 
+           border: 3px solid white;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+        
+        #email::placeholder, #name::placeholder, #sub::placeholder, #msg::placeholder
+  {
+    color: #aaa;  
+    font-style: italic;  
+    opacity: 1;  
+}
+
+
+        #email:focus {
+    color:black;  
+    font-weight:600;
+    
+    box-shadow: 0 0 10px #00FFFF  inset; 
+}
+
+        #sub:focus {
+    color:black;  
+    font-weight:600;
+    
+    box-shadow: 0 0 10px #00FFFF  inset; 
+}
+
+        #name:focus {
+    color:black;  
+    font-weight:600;
+    
+    box-shadow: 0 0 10px #00FFFF  inset; 
+}
+
+        #msg:focus {
+    color:black;  
+    font-weight:600;
+    
+    box-shadow: 0 0 15px #00FFFF  inset; 
+}
+        
+        #submit {
+              width: 55%;
+            display:flex;
+            justify-content:center;
+            padding: 10px;
+            border: none;
+              background-color:#00FFFF;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+              font-weight:600;
+               margin: 0 auto;
+        }
+        #submit  {
+              color:black;
+         box-shadow:0 0 5px #00FFFF,0 0 15px #00FFFF;
+         
+        }
+        
+           a {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            text-decoration: none;
+             
+            font-weight:600;
+              color:white;
+             font-size:15px;
+             font-style:italic;
+            color:white;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+             text-decoration-color:white;;
+        }
+        
+           .message {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .message.success {
+            color: green;
+            font-size: 14px;
+        }
+
+        .message.error {
+            color: red;
+            font-size: 14px;
+        }
+        
+    </style>
+</head>
+<body>
+  <form th:action="@{/contactf}" th:object="${contact}" method="post" novalidate>
+    <h3>Contact Form</h3>
+    <div class="input-container">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email">
+        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="message error"></span>
+    </div>
+    <div class="input-container">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your name">
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="message error"></span>
+    </div>
+    <div class="input-container">
+        <label for="sub">Subject</label>
+        <input type="text" id="sub" name="sub" required placeholder="Enter the subject">
+        <span th:if="${#fields.hasErrors('sub')}" th:errors="*{sub}" class="message error"></span>
+    </div>
+    <div class="input-container">
+        <label for="msg">Message</label>
+        <textarea id="msg" name="msg" rows="4" required placeholder="Enter your message here"></textarea>
+        <span th:if="${#fields.hasErrors('msg')}" th:errors="*{msg}" class="message error"></span>
+    </div>
+    <input type="submit" value="Send Email" id="submit">
+      <a th:href="@{/nav2}">Back to HOMEPAGE</a>
+      
+      <div th:if="${message}" class="message success" th:text="${message}"></div>
+        <div th:if="${error}" class="message error" th:text="${error}"></div>
+</form>
+  
+      
+</body>
+</html>
+ 

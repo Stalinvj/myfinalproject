@@ -1,0 +1,42 @@
+@charset "ISO-8859-1";
+ 
+
+
+.sidebar-search {
+    padding: 5px;
+}
+
+.sidebar-search input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#sidebar {
+    width: 250px; 
+    transition: transform 0.3s ease;
+    transform: translateX(0);  
+}
+
+#sidebar.hidden {
+    transform: translateX(-150%);  
+}
+
+ .d-flex{
+    margin-top: 3%;
+    margin-left: 2%;
+ }
+
+.toggler-icon {
+    position: fixed; /* Fixed position on the screen */
+    top: 28px; /* Adjust as needed */
+    left: 10px; /* Adjust as needed */
+    z-index: 1000; 
+    width: 45px;
+    /* Ensure it is above other elements */
+}
+.scope{
+    margin-left: 25px;
+}

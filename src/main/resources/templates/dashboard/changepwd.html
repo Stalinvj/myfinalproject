@@ -1,0 +1,184 @@
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="/scopehomeimg/mybkg.jpg" as="image">
+    
+    <title>Change Password</title>
+    <style>
+        body {
+             
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+                background-image:url(/scopehomeimg/myb.jpeg) ;
+               background-size:cover;
+            background-repeat:no-repeat;
+               background-attachment: fixed;
+            
+        }
+        
+                 
+@media (max-width: 600px) {
+    body {
+        padding: 0 30px;  
+    }
+}
+        
+
+        .container {
+       
+       border:2px solid white;
+       backdrop-filter:blur(15px);
+       
+            padding: 50px;
+           
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        h4 {
+            margin-bottom: 30px;
+            text-align: center;
+                 color:white; 
+	   font-weight:700; 
+	    font-size:21px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+                font-size:17px;
+            color:white; 
+            
+	   font-weight:600; 
+        }
+
+        #newpass,#exist {
+            width: 92%;
+            padding: 10px;
+            margin-bottom: 15px;
+           border: 3px solid white;
+           
+            
+            border-radius: 6px;
+        }
+        
+               
+        #newpass:focus {
+    color:black;  
+    font-weight:600;
+    
+    box-shadow: 0 0 10px #00FFFF  inset; 
+}
+       
+        #exist:focus {
+    color:black;  
+    font-weight:600;
+    
+    box-shadow: 0 0 10px #00FFFF  inset; 
+}
+
+
+
+       #submit {
+        width: 80%;
+            display:flex;
+            justify-content:center;
+            background-color:#00FFFF;
+            color:white ;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            
+            font-size: 16px;
+            font-weight:600;
+            margin: 0 auto;
+            margin-top:30px;
+        }
+
+        #submit {
+            color:black;
+         box-shadow:0 0 5px #00FFFF; box-shadow:0 0 15px #00FFFF;
+      
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .message div {
+            margin: 5px 0;
+        }
+
+        .success {
+            color: green;
+            font-size:14px;
+            font-weight:600;
+        }
+
+        .error {
+            color: red;
+             font-size:14px;
+            font-weight:600;
+        }
+
+        .back-link {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .back-link a {
+            text-decoration: none;
+              color:white;
+            font-weight:600;
+             font-size:15px;
+             font-style:italic;
+             
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+                 text-decoration-color:
+                 
+  white;      }
+        #newpass::placeholder, #exist::placeholder{
+    color: #aaa;  
+    font-style: italic;  
+    opacity: 1;  
+}
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h4>Change Password</h4>
+        <form th:action="@{newpassnew}" method="post"> 
+            <label for="exist">Existing Password</label>
+            <input type="text" name="exist" id="exist" placeholder="Enter your existing password"><br>
+            <label for="newpass">New Password</label>
+            <input type="text" name="newpass" id="newpass" placeholder="Enter your new password"><br>
+            <input type="submit" id="submit" value="Change Password">
+        </form>
+        <div class="back-link">
+            <a th:href="@{/dash}">Back to dashboard</a>
+        </div>
+        <div class="message" th:if="${message}">
+            <div class="success" th:text="${message}"></div>
+        </div>
+        <div class="message" th:if="${error}">
+            <div class="error" th:text="${error}"></div>
+        </div>
+    </div>
+</body>
+</html>
+ 

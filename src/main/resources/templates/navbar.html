@@ -1,0 +1,528 @@
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" th:href="@{/homenav/homenav.css}">
+       <link rel="stylesheet" th:href="@{/footer.css}">
+  
+    <style>
+   
+
+ 
+.navbar{
+    display: flex;
+    justify-content: space-between;  
+    align-items: center;  
+    position: relative; 
+    position:fixed; 
+}
+.navbar-brand {
+    position: absolute;  
+    left: 50%;  
+    transform: translateX(-50%); 
+}
+
+
+
+
+@media (max-width: 575.99px) {  
+    .navbar {
+        justify-content: center;  
+    }
+    .navbar-brand {
+        position: relative;  
+        transform: none; 
+    }
+    .offcanvas {
+        width: 37vw !important; 
+        
+        
+         max-height: 80vh;
+        
+       
+    }
+   
+}
+
+@media only screen and (min-width: 576px) and (max-width:767.99px) {   
+    .navbar {
+        justify-content: center;
+         
+    }
+    .navbar-brand {
+        position: relative;  
+        transform: none;  
+    }
+    .offcanvas {
+        width: 26vw !important; 
+         max-height: 80vh; 
+       
+    }
+    
+}
+
+@media only screen and (min-width: 768px) and (max-width:992px) {   
+    .navbar {
+        justify-content: center;
+         
+    }
+    .navbar-brand {
+        position: relative;  
+        transform: none;  
+    }
+    .offcanvas {
+        width: 22vw !important; 
+         max-height: 80vh; 
+       
+    }
+    
+     
+}
+
+@media (max-width: 992px) {
+    .offcanvas-body {
+        display: flex;
+        flex-direction: column;  
+        align-items: center;     
+    }
+    
+    .navbar-nav {
+        width: 100%;            
+        justify-content: center;  
+        padding: 0;             
+    }
+
+    .nav-item {
+        margin: 10px 0;         
+    }
+}
+
+@media (min-width: 769px) {
+    .offcanvas {
+        width: auto;  
+         max-height: 80vh;
+        
+    }
+    .navbar-nav {
+        margin-left: auto;  
+        margin-right: auto;  
+    }
+    .navbar-nav.left {
+        margin-right: auto; 
+    }
+    .navbar-nav.right {
+        margin-left: auto;  
+    }
+    .nav-item {
+        margin: 0 15px;  
+    }
+}
+
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="white"%3E%3Cpath stroke="white" stroke-width="2" d="M5 7h20M5 15h20M5 23h20"/%3E%3C/svg%3E');
+}
+
+.btn-close {
+    filter: brightness(0) invert(1);  
+}
+.navbar-toggler {
+    border: none !important;  
+    background-color: transparent !important;  
+    outline: none !important;  
+    box-shadow: none !important;  
+}
+
+.navbar-toggler:focus {
+    outline: none !important;  
+}
+
+.navbar-toggler:active {
+    outline: none !important;  
+    background-color: transparent !important; 
+}
+ 
+
+  body {
+    overflow-x: hidden;  
+}
+ 
+
+.container-fluid {
+    width: 100%; 
+    padding: 0;  
+}
+
+.container-fluid p {
+   color:black; 
+}
+ 
+.row {
+    display: flex;  
+    justify-content: center;  
+}
+
+.col-md-6 {
+    background-color: white;  
+    padding: 20px;  
+    border-radius: 8px;  
+    max-width: 1100px; 
+    width: 100%;  
+}
+
+.star {
+    display: block; 
+    margin: 0 auto;  
+    max-width: 30%;  
+    height: auto;  
+}
+
+.sindia, .oneofthebest{
+color:darkblue;
+}
+
+
+h1{
+color:darkblue;
+}
+
+strong{
+color:#050a4c;
+
+}
+
+
+.rating, .sindia, .oneofthebest, .para, .para2 {
+    text-align: center;  
+}
+ 
+@media (max-width: 768px) {
+    .col-md-6 {
+        padding: 15px; 
+    }
+    
+ 
+}
+
+  .para, .para2 {
+    text-align: justify;  
+    margin-left:10px;  
+    margin-right:10px;
+}
+ 
+ .sindia{
+ font-size:50px;
+ font-weight:700;
+ }
+ 
+ .oneofthebest{
+ font-size:35px;
+ font-weight:600;
+ }
+ 
+  .para{
+ font-size:16.7px;
+ 
+ }
+   .para2{
+ font-size:16.7px;
+ 
+ }
+ 
+ 
+ 
+  
+  .ic{
+  
+   background-color: #E6E6E3;
+  }
+ 
+ .ic p{
+ color:black;
+ font-size:16px;
+ font-weight:600;
+ }
+ 
+ 
+  .icon {
+    display: flex;  
+    justify-content: center; 
+    flex-wrap: wrap; 
+    margin-top:10px;
+    
+}
+
+.icon-item {
+    text-align: center;
+    position: relative;
+    margin: 10px; 
+    flex: 1 1 200px;  
+}
+
+.icon-item img {
+    max-width: 40%; 
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+#hand {
+ height:25%;
+}
+
+h1 {
+    font-size: 48px;  
+    font-weight: 600;  
+    margin: 10px 0;  
+}
+
+p {
+    text-align: justify;  
+    margin-left: 20px;   
+    margin-right: 20px; 
+    font-size: 17px;
+   
+    
+}
+
+.icon-item:hover img {
+    transform: translateY(-10px);
+}
+
+.svg-line {
+    position: absolute;
+    top: 65px;  
+    left: 50%; 
+    transform: translateX(-50%);  
+    width: 35%; 
+    height: 2px;  
+    background-color: red; 
+    transition: opacity 0.3s ease;
+    opacity: 0;  
+}
+
+.icon-item:hover .svg-line {
+    opacity: 1; 
+}
+
+ 
+
+ 
+ 
+@media (max-width: 991.99px) {
+    .icon {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .icon-item {
+        margin: 5px 0; 
+        flex: none; 
+        width: 50%;  
+    }
+
+    .icon-item img {
+        max-width: 30%;  
+    }
+
+    .svg-line {
+        width: 35%;  
+    }
+    #hand{
+    width:19%;
+    }
+    
+    
+    
+    
+   
+    
+}
+
+@media (min-width:992px) {
+    .icon {
+        flex-wrap: nowrap;  
+    }
+
+    .icon-item {
+        margin: 10px;  
+    }
+}
+  
+ 
+ 
+   
+ 
+   </style>
+</head>
+<body>
+    <header class="headfixed"> 
+  <nav class="navbar navbar-expand-lg fixed-top" style="background-color: darkblue;">
+  <div class="container-fluid">
+ <a class="navbar-brand" href="#">
+    <img src="uploadimg/scope-india-logo-bird.png" alt="scopelogo" width="30" height="34">
+  </a>
+ <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+  <div class="offcanvas-header">
+  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+  <ul class="navbar-nav left">
+   <li class="nav-item">
+    <a class="nav-link  home" aria-current="page" th:href="@{/nav2}">Home</a>
+  </li>
+   <li class="nav-item">
+  <a class=" nav-link register" th:href="@{/reg}" role="button">Register</a>
+  </li>
+   <li class="nav-item">
+  <a class=" nav-link dashboard" th:href="@{/dash}" role="button">Dashboard</a>
+  </li>
+  </ul>
+ <ul class="navbar-nav right">
+  <li class="nav-item">
+  <a class="nav-link know" th:href="@{/otp-form}">New User</a>
+   </li>
+  <li class="nav-item">
+  <a class="nav-link contact" th:href="@{/contact}">Contact</a>
+</li>
+ <li class="nav-item">
+<a class="nav-link login" th:href="@{/otp}" role="button">Login</a>
+ </li>
+</ul>
+ </div>
+ </div>
+ </div>
+ </nav>
+ </header>
+
+     <div class="scopelogo">
+    <img src="/scopehomeimg/scope-india-logo-home-page.png" alt="scopeimage" class="frontimg">
+    </div>
+      
+<div class="container-fluid">  
+    <div class="row justify-content-center">  
+        <div class="col-md-6">
+            <img class="star img-fluid" src="/scopehomeimg/star.jpg" alt="5 Star Rating">
+            <p class="rating">Google 4.9 * Rated Institute</p>
+            <h1 class="sindia">SCOPE INDIA, your career partner!</h1>
+            <p class="oneofthebest">One of India's best Training destinations for Software, 
+            Networking, and Cloud Computing courses with 17 years of Industrial experience.</p>
+            <p class="para"> Software, Networking, and Cloud Professional Education Centre in Kerala
+            and Tamil Nadu from ,<strong>Suffix E Solutions</strong> with WORKING PROFESSIONALS oriented on-the-job 
+            TRAINING model. SCOPE INDIA provides courses for<strong> Software Programming </strong> in 
+            Python (Data Science | Artificial Intelligence | Machine Learning | Deep Learning, 
+            Data Analytics), Java, PHP, .Net, MERN,<strong> Software Testing </strong>Manual and Automation, 
+            <strong>Cloud Computing </strong>(AWS | Azure), <strong>Server Administration </strong>(MicroSoft MCSE | Linux RHCE), 
+            Networking (CCNA), <strong> DevOps, Mobile App Development</strong> in Flutter, and <strong>Digital Marketing.</strong>
+            A Training with a 100% Trusted Job-Based Internship Model. SCOPE INDIA has a Strong 
+            Placement Cell that provides jobs to thousands of students annually.
+            We assure you, you won't regret it after training from SCOPE INDIA!</p>
+            <p class="para2">This is how SCOPE INDIA can support both newbies and those experienced in the industry to upgrade their skills.</p>
+        </div>
+    </div>
+</div>
+
+<div class="ic"> <br>
+      <div class="icon row text-center">
+          <div class="icon-item col-md-3">
+        
+              <img class="imicons" src="/scopehomeimg/snowpark-home-icon1.png" alt="Training Icon">
+             <h1>Training</h1> 
+              <p>You are trained under Suffix E  Solutions working professionals.</p>
+                <svg class="svg-line" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="1" x2="100%" y2="1" stroke="green" stroke-width="2" />
+        </svg>
+          </div>
+          <div class="icon-item col-md-3">
+           
+              <img class="imicons" src="/scopehomeimg/snowpark-home-icon2.png" alt="Internship Icon">
+            
+              <h1>Internship</h1>
+              <p>After course completion, live projects with a 6-month certificate.</p>
+                <svg class="svg-line" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="1" x2="100%" y2="1" stroke="green" stroke-width="2" />
+        </svg>
+          </div>
+          <div class="icon-item col-md-3">
+          
+              <img class="imicons" src="/scopehomeimg/snowpark-home-icon3.png" alt="Grooming Icon" id="hand">
+              
+              <h1>Grooming</h1> 
+              <p>CV Preparation, Interview Preparation, and Personality Development.</p>
+                    <svg class="svg-line" xmlns="http://www.w3.org/2000/svg" id="hands">
+            <line x1="0" y1="1" x2="100%" y2="1" stroke="green" stroke-width="2" />
+        </svg>
+          </div>
+          <div class="icon-item col-md-3">
+         
+              <img class="imicons" src="/scopehomeimg/snowpark-home-icon4.png" alt="Placement Icon" id="place">
+            
+              <h1>Placement</h1>
+              <p>100% FREE placement support through SCOPE INDIA's Placement Cell.</p>
+                    <svg class="svg-line" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="1" x2="100%" y2="1" stroke="green" stroke-width="2" />
+        </svg>
+          </div>
+      </div>
+  </div>
+ <div id="foot">
+    <div class="row pt-5">
+        <h1 class="num d-flex justify-content-center">30+</h1>
+        <p class="cont d-flex justify-content-center">COMPUTER COURSES</p>
+    </div>
+    <div class="row text-center m-auto">
+        <div class="col-sm-6 d-flex flex-column align-items-center">
+            <h1 class="num">1000+</h1>
+            <p class="cont">STUDENTS ARE <br> TRAINED EVERY YEAR</p>       
+        </div>
+        <div class="col-sm-6 d-flex flex-column align-items-center">
+            <h1 class="num">95%</h1>
+            <p class="cont">STUDENTS ARE GETTING <br> PLACED EVERY YEAR</p>        
+        </div>
+    </div>
+    <div id="logocont" class="text-center mt-5">
+        <img src="/scopehomeimg/scope-india-logo-home-page.png" alt="snowpark-footer-logo" class="img-fluid">
+       
+        <p class="kt" style="margin-top:-15px;">Kerala: Technopark TVM | Thampanoor TVM | Kaloor Kochi, Tamil Nadu: Distillery Road | Palace Road Nagercoil</p>
+         <div class="iso-container text-center">
+        <img src="/scopehomeimg/iso_iaflogo2.png" alt="iso_iaflogo" class="img-fluid iso-logo mt-4 mb-3">
+        <p class="iso">An ISO 9001:2015 Certified Company</p>
+        <p class="all">All Rights Reserved <a href="#" class="footlink">Suffix E Solutions</a> © 2007-2024</p>
+    </div>
+        <div class="row footlinkcont mt-4 justify-content-center">
+            <a href="tel:+9745936073" class="footlink col-md-2 text-center">9745936073 (TPK)</a>
+            <a href="#" class="footlink col-md-2 text-center">9745936073 (TVM)</a>
+            <a href="#" class="footlink col-md-2 text-center">7592939481 (EKM)</a>
+            <a href="#" class="footlink col-md-2 text-center">8075536185 (NGL)</a>
+            <a href="mailto:info@scopeindia.org?bcc=blindcopy@scopeindia.org" class="footlink col-md-2 text-center">info@scopeindia.org</a>
+        </div>
+    </div>
+</div>
+ <script>
+ document.addEventListener("DOMContentLoaded",function(){
+	 const message="[[${message}]]"
+	 if(message){
+		 alert(message)
+	 }
+ });
+ 
+      document.addEventListener("DOMContentLoaded",function(){
+        	const error="[[${error}]]"
+        	if(error){
+        		alert(error);
+        	}
+        	
+        });  
+        
+ 
+ </script>
+</body>
+</html>
+ 

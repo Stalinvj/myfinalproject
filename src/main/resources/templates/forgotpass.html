@@ -1,0 +1,111 @@
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <style>
+        body {
+           
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+              font-family: Arial, sans-serif;
+         background-image:url(/scopehomeimg/myb.jpeg) ;
+           background-size:cover;
+            background-repeat:no-repeat;
+               background-attachment: fixed;
+        }
+        form {
+                 backdrop-filter: blur(10px);
+            border-radius: 8px;
+            box-shadow:0 0 5px #000036 ;
+             padding: 50px;
+            width: 90%;
+            max-width: 400px;  
+            box-sizing: border-box;
+            border:2px solid white;
+            
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            
+	   font-weight:700; 
+	    font-size:21px;
+	    color:white;
+	  
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+                 font-size:18px;
+            color:white; 
+	   font-weight:700; 
+	   
+        }
+        #email  {
+            width: 92%;
+            padding: 12px;
+            margin-bottom: 15px;
+             border: 3px solid white;
+            border-radius: 6px;
+        }
+        
+   #email::placeholder
+  {
+    color: #aaa;  
+    font-style: italic;  
+    opacity: 1;  
+}
+
+      #email:focus {
+    color:black;  
+    font-weight:600;
+    
+    box-shadow: 0 0 10px #00FFFF  inset; 
+}  
+        button {
+           width: 50%;
+            display:flex;
+            justify-content:center;
+            padding: 10px;
+            border: none;
+             background-color:#00FFFF;
+             font-weight:600;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin:auto;
+        }
+       
+        button  {
+          
+            color: black;
+            box-shadow: 0 0 5px #00FFFF, 0 0 15px #00FFFF ;
+        }
+       
+       
+        .message {
+            text-align: center;
+            margin-top: 10px;
+            font-size:14px;
+        }
+    </style>
+</head>
+<body>
+    <form th:action="@{/forgotpwd}" method="post">
+        <h2>Forgot Password</h2>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email" />
+        <button type="submit">Send OTP</button>
+        <div th:if="${message}" th:text="${message}" class="message" style="color: green;"></div>
+        <div th:if="${error}" th:text="${error}" class="message" style="color: red;"></div>
+    </form>
+</body>
+</html>
+ 

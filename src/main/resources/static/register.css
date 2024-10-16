@@ -1,0 +1,152 @@
+@charset "ISO-8859-1";
+
+
+ .formcont{
+  margin-top:250px;
+  }
+  
+  .container {
+        background-color:#E6E6E3; 
+        border-radius: 4px;  
+         margin-top: 60px;
+    }
+ 
+ 
+.content {
+    text-align: center;
+    }
+
+ h1{
+ font-size:52px;
+ color:#DBA800;
+  font-weight:700;
+ }
+ 
+ h2{
+ font-size: 32px;
+ font-weight: 790;
+ color: white;
+ }
+ 
+ 
+ @media only screen and (max-width:768px){
+ .content {
+    text-align: center;
+    }
+
+ h1{
+ font-size:42px;
+ color:#FFD700;
+  font-weight:700;
+ }
+ 
+ h2{
+ font-size: 22px;
+ font-weight: 790;
+ color: white;
+ }
+ }
+
+
+
+ @media only screen and (max-width:575.99px){
+ .col2,.col1{
+width:85%;
+ margin-left:30px;
+ margin-top:70px;
+ }
+ }
+ 
+ 
+ @media only screen and (min-width:576px) and (max-width:767.99px){
+ .col2,.col1{
+width:85%;
+ margin-left:30px;
+ margin-top:70px;
+ }
+ }
+  @media only screen and (min-width:768px) and (max-width:991.99px){
+ .col2,.col1{
+width:40%;
+ margin-left:45px;
+ margin-top:70px;
+ }
+ }
+ 
+   @media only screen and (min-width:992px){
+ .col2,.col1{
+width:45%;
+ margin-left:34px;
+ margin-top:70px;
+ 
+ }
+ 
+
+ }
+ .required{
+ color:darkred;
+ font-weight:bold;
+ }
+ 
+ 
+ 
+
+        .mb-4 {
+            margin-bottom: 1rem;  
+        }
+
+        .text-danger {
+            display: block;  
+            margin-top: 0.2rem;  
+            font-size: 0.9rem;  
+            color: red; 
+        }
+
+        .form-control {
+            max-width: 100%;  
+        }
+
+        #regbutton {
+            margin-top: -500px;  
+            width: 100%; 
+            color: white;
+            font-weight:800;
+            background-color:#00FFFF;
+            box-shadow:0 0 5px #00FFFF;
+            border:none;
+            border-radius:8px;
+            padding:8px;
+            transition:0.5s;
+      
+        }
+        
+        #regbutton:hover{
+        color:black;
+         box-shadow:0 0 5px #00FFFF; box-shadow:0 0 25px #00FFFF;
+          box-shadow:0 0 50px #00FFFF; box-shadow:0 0 100px #00FFFF;
+        }
+        
+ .custominput{
+   color:black; 
+     font-weight:400; 
+ }
+
+label{
+	 color:black; 
+	   font-weight:500; 
+      
+     
+}
+.custominput:focus {
+    color:black;  
+    font-weight:600;
+    
+    box-shadow: 0 0 5px #00FFFF  inset; 
+}
+
+.customcheck:focus {
+    color:black;  
+    font-weight:600;
+    
+    box-shadow: 0 0 5px  #FF00FF inset; 
+}

@@ -1,0 +1,82 @@
+@charset "ISO-8859-1";
+@media only screen and  (max-width:1200px) {
+    .offcanvas-end {
+      width:auto!important ; 
+      background-color:darkblue;
+      
+    }
+  
+    
+  }
+   
+   
+   .nav-link {
+    color: white; 
+    text-decoration: none; 
+    padding: 5px 10px; 
+    transition: color 0.3s ease, background-color 0.3s ease;
+border-radius: 5px;  
+}
+
+  .nav-link:hover {
+    color:orangered;  
+    font-weight:800;
+   
+    
+ 
+ 
+    
+}
+
+.nav-link:active {
+    color: darkorange;  
+   
+}
+
+.nav-link:focus {
+    outline: none;  
+    box-shadow: 0 0 5px white;  
+}
+ 
+  
+   
+
+.scopelogo{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	 height: 100vh;
+	background-image:url(/scopehomeimg/frontbkg.jpg);
+	background-size:cover;
+	background-position: center;
+	background-repeat:no-repeat;
+	  background-attachment: fixed;
+	 
+}
+ /* for scopehome frontimg */
+@media (max-width: 575.99px) {
+    .frontimg {
+        width: 55vh;  
+    }
+}
+    
+ @media only screen and (min-width:576px) and (max-width:991.99px){
+    .frontimg {
+        width: 65vh;  
+    }
+    
+ }
+
+@media (max-width:  992px) {
+    .frontimg {
+          max-width: 100%; 
+            height:auto;;
+    }
+} 
+       
+       
+   
+       
+  
+   
+   

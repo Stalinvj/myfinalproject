@@ -1,0 +1,213 @@
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="preload" href="/scopehomeimg/newbkgc.jpg" as="image">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+              font-family: Arial, sans-serif;
+              background-image:url(/scopehomeimg/myb.jpeg) ;
+            background-size:cover;
+            background-repeat:no-repeat;
+               background-attachment: fixed;
+        }
+        
+        
+         
+ 
+@media (max-width: 600px) {
+    body {
+        padding: 0 20px; 
+    }
+    form {
+        width: 100%; 
+        max-width: 400px;  
+        margin: 0 auto; 
+    }
+}
+
+ 
+
+ 
+form {
+    backdrop-filter: blur(10px);
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 20px;
+    width: 400px; /* Set a default width */
+    box-sizing: border-box;
+}
+ 
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+                 color:white; 
+	   font-weight:700; 
+	    font-size:22px;
+	    
+	  
+        }
+        .input-container {
+            position: relative;
+            margin-bottom: 10px;
+        }
+        .input-container i {
+            position: absolute;
+            left: 10px;
+            top: 43px;
+            color: #aaa;
+        }
+        #emailid,#password {
+            width: 86%;
+            padding: 12px 12px 12px 32px; 
+            border: 3px solid white;
+            border-radius: 6px;
+        }
+        
+        #emailid::placeholder,
+#password::placeholder {
+    color: #aaa;  
+    font-style: italic;  
+    opacity: 1;  
+}
+        
+               #password:focus {
+    color:black;  
+    font-weight:600;
+    
+    box-shadow: 0 0 10px #00FFFF  inset; 
+}
+        
+          #emailid:focus {
+    color:black;  
+    font-weight:600;
+    
+    box-shadow: 0 0 10px #00FFFF  inset; 
+}    
+
+
+.input-container label {
+    display: block;
+    margin-bottom: 10px; 
+     font-size:16px;
+       color:white; 
+	   font-weight:600;
+	          
+}
+        
+        #log {
+            margin-bottom: 18px;
+             
+        }
+        
+         
+        #logi {
+               
+    margin-bottom: 14px; 
+     font-size:16px;
+         
+	   font-weight:600; 
+	   color:white;
+             
+        }
+        #submit {
+            width: 50%;
+              display:flex;
+            justify-content:center;
+            padding: 10px;
+            border: none;
+             background-color:#00FFFF;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+             font-size: 16px;
+            font-weight:600;
+            margin: 0 auto;
+        }
+         #submit {
+          
+            color: black;
+            box-shadow: 0 0 5px #00FFFF, 0 0 15px #00FFFF ;
+        }
+        
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            text-decoration: none;
+             
+            font-weight:600;
+              color:white;
+             font-size:15px;
+             font-style:italic;
+            color:white;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+             text-decoration-color:white;;
+        }
+        .message {
+            text-align: center;
+            margin-top: 10px;
+             font-size:14px;
+        }
+        
+      
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 1px;
+            cursor: pointer;
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <form th:action="@{/login}" method="post" th:object="${otp}">
+        <h2>Login</h2>
+        <div class="input-container">
+         <label for="emailid">Email</label>
+         <i class="fas fa-envelope"></i>
+               
+            <input type="text" name="emailid" id="emailid" placeholder="eg: abcd@gmail.com" required>
+        </div>
+        <div class="input-container">
+        <label for="password">Password</label>
+            <i class="fas fa-lock"></i>
+            <input type="password" name="pass" id="password" placeholder="Enter Your password" required>
+            <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+        </div>
+        <label for="loggedin" id="logi">Keep me Logged in</label>
+        <input type="checkbox" name="loggedin" value="loggedin" id="log" class="form-check-input"><br>
+        <input type="submit" value="Login" id="submit"><br>
+        <a th:href="@{/forgot}">Forgot Password?</a>
+        <a th:href="@{/otp-form}">New user</a>
+          <a th:href="@{/nav2}">Back to HOMEPAGE</a>
+
+        <div th:if="${message}" th:text="${message}" class="message" style="color: green;"></div>
+        <div th:if="${error}" th:text="${error}" class="message" style="color: red;"></div>
+    </form>
+
+    <script>
+        document.getElementById('togglePassword').addEventListener('click', function () {
+            const passwordInput = document.getElementById('password');
+            const passwordType = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', passwordType);
+            this.classList.toggle('fa-eye-slash');
+        });
+    </script>
+</body>
+</html>
+ 

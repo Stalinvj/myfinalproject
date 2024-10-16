@@ -1,0 +1,108 @@
+ #foot {
+    background-color: #050a4c;
+    width: 100vw;
+    height: auto;
+    margin: 0;
+    color: white; /* Set text color for the footer */
+    text-align: center; /* Center all text within this section */
+}
+
+.num {
+    color: #0095eb;
+    font-weight: bolder;
+}
+
+.cont {
+    color: white;
+    font-weight: 400;
+    letter-spacing: 5px;
+    font-size: 15px;
+    margin: 0; /* Remove margins to keep everything centered */
+}
+
+#logocont {
+    color: white;
+}
+
+.iso-logo {
+    width: 400px;
+}
+
+.footlink {
+    text-decoration: none;
+    color: white;
+}
+
+.footlink:hover {
+    text-decoration: underline;
+}
+
+.footlinkcont {
+    padding-bottom: 150px;
+}
+ .kt {
+    margin-left: 180px;  
+}
+ 
+  @media only screen and (max-width:992px){
+  .kt{
+   text-align: left;  
+        margin-left: 40px;  
+  }
+  }
+  
+  
+   
+ 
+  
+ #logocont {
+    text-align: center; 
+    margin: 0 auto;  
+}
+
+.iso-container {
+    margin-top: 20px;  
+}
+
+.iso-logo {
+    width: 400px; 
+    margin: 0 auto; 
+}
+
+ .iso, .all {
+    color: white;  
+    margin: 10px 0;  
+    display: block; 
+    text-align: center; 
+ }
+ 
+@media (max-width: 576px) {
+    .iso {
+        margin-left: 0;  
+    }
+    .all {
+        margin-left: 0;  
+    }
+}
+
+/* Medium screens */
+@media (min-width: 577px) and (max-width: 768px) {
+    .iso {
+        margin-left: 50px;  
+    }
+    .all {
+        margin-left: 50px;  /
+    }
+}
+
+ 
+@media (min-width: 769px) {
+    .iso {
+        margin-left: 50px;  
+    }
+    .all {
+        margin-left: 50px;  
+    }
+}
+ 
+ 
